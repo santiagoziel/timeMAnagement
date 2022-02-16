@@ -1,0 +1,10 @@
+.container{
+  min-width: 200px;
+  background-color: #ffffff;
+  margin: 15% 35%;
+  padding: 10px;
+  box-shadow: 0 8px 16px 0 rgba(146, 181, 199,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border-radius: 20px;
+}
+
+body {background-color: #92b5c7;}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Registro</title>
+  </head>
+  <body>
+    <h1>Registro de Usuario</h1>
+    <form method="post" action="">
+      {{form.hidden_tag()}}{{form.username}} {% if form.username.errors %}
+      <ul class="errors">
+        {% for error in form.username.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {{form.password}} {% if form.password.errors %}
+      <ul class="errors">
+        {% for error in form.password.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {{form.submit}}
+    </form>
+
+    <a href="{{url_for('home')}}">Home</a><br />
+    <a href="{{url_for('login')}}">Ya tienes Cuenta?</a><br />
+  </body>
+</html>
