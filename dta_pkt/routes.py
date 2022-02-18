@@ -31,6 +31,11 @@ def deberiaEstar():
 def dashboard():
     return render_template("dashboard.html", user = current_user)
 
+@app.route("/schedule", methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    return render_template("schedule.html", user = current_user)
+
 @app.route("/logout")
 @login_required
 def logout():
