@@ -33,7 +33,7 @@ def dashboard():
 
 @app.route("/schedule", methods=['GET', 'POST'])
 @login_required
-def dashboard():
+def schedule():
     return render_template("schedule.html", user = current_user)
 
 @app.route("/logout")
