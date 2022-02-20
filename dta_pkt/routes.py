@@ -34,8 +34,26 @@ def dashboard():
 @app.route("/schedule", methods=['GET', 'POST'])
 @login_required
 def schedule():
-    schedule = Week.query.all()
-    return render_template("schedule.html", schedule = schedule)
+    full_schedule = Week.query.all()
+    num_to_day = {
+    0 : "lunes",
+    1: "martes",
+    2: "miercoles",
+    3: "jueves",
+    4: "viernes",
+    5: "sabado",
+    6: "domingo"
+    }
+    day_to_act = {
+    0 : ["d","t","c"],
+    1: ["d","t","c"],
+    2: ["d","t","c"],
+    3: ["d","t","c"],
+    4: ["d","t","c"],
+    5: ["d","t","c"],
+    6: ["d","t","c"]
+    }
+    return render_template("schedule.html", full_schedule = full_schedule, num_to_day = num_to_day)
 
 @app.route("/logout")
 @login_required
