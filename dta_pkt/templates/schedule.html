@@ -16,18 +16,23 @@
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-0lax">dia</th>
-    <th class="tg-0lax">hora</th>
-    <th class="tg-0lax">act</th>
+    <th class="tg-0lax">lunes</th>
+    <th class="tg-0lax">martes</th>
+    <th class="tg-0lax">miercoles</th>
+    <th class="tg-0lax">jueves</th>
+    <th class="tg-0lax">viernes</th>
+    <th class="tg-0lax">sabado</th>
+    <th class="tg-0lax">domingo</th>
   </tr>
 </thead>
 <tbody>
-  {% for moment in full_schedule %}
-  <tr>
-    <td>{{num_to_day[moment.dia]}}</td>
-    <td>{{moment.hora}}</td>
-    <td>{{moment.act}}</td>
-  </tr>
+  {% for element in day_to_act[0] %}
+    {% set outer_loop = loop.index0 %}
+    <tr>
+    {% for day in day_to_act %}
+      <td>{{day[outer_loop].act}}</td>
+    {% endfor %}
+    </tr>
   {% endfor %}
 </tbody>
 </table>
