@@ -17,3 +17,5 @@ class Week(db.Model):
     dia = db.Column(db.Integer, nullable = False)
     hora = db.Column(db.Integer)
     act = db.Column(db.String(50))
+    def __repr__(self):
+        return f"{self.dia} a las {self.hora} deberia estar {self.act}"

@@ -1,74 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-      <meta charset="utf-8">
-      <title>Utopian-io | How to create a Spreadsheet component using HTML and JavaScript</title>
-      <link href="css/bootstrap.min.css" rel="stylesheet">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/handsontable/0.35.1/handsontable.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
   </head>
-<body style="padding-top: 5rem;">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Utopian-io</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Get Started</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Community</a>
-          </li>
-        </ul>
-        <a class="btn btn-success my-2 my-sm-0" href="#"><i class="fa fa-sign-in"></i> Login</a>
-      </div>
-    </div>
-    </nav>
-    <main role="main" class="container">
-      <h1>Employee Database</h1>
-        <p class="lead">Managing employee database using Spreadsheet</p>
-      <div class="container welcome-div">
-           <div id="employee">
-           </div>
-      </div>
-    </main>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handsontable/0.35.1/handsontable.min.js"></script>
-    <script type="text/javascript">
-          var data = [{
-          "first_name": "Martita",
-          "last_name": "Nutkins",
-          "email": "mnutkins0@nifty.com",
-          "gender": "Female",
-          "ip_address": "80.215.109.49"
-        }, {
-          "first_name": "Coletta",
-          "last_name": "Carnall",
-          "email": "ccarnall1@umich.edu",
-          "gender": "Female",
-          "ip_address": "81.195.227.229"
-        }, {
-          "first_name": "Drusi",
-          "last_name": "Meale",
-          "email": "dmeale9@pcworld.com",
-          "gender": "Female",
-          "ip_address": "150.32.90.216"
-        }]
-        var container = document.getElementById('employee');
-        var hot = new Handsontable(container, {
-          data: data,
-          rowHeaders: true,
-          colHeaders: false,
-          colHeaders: ['Firts name', 'Last name', 'email', 'Gender', 'IP Address'],
-          columnSorting: true,
-          sortIndicator: true
-        });
-    </script>
-</body>
+  <body>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">id</th>
+    <th class="tg-0lax">dia</th>
+    <th class="tg-0lax">hora</th>
+    <th class="tg-0lax">act</th>
+    <th class="tg-0lax"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
+  </body>
 </html>

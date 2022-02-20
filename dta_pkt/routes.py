@@ -34,7 +34,8 @@ def dashboard():
 @app.route("/schedule", methods=['GET', 'POST'])
 @login_required
 def schedule():
-    return render_template("schedule.html", user = current_user)
+    schedule = Week.query.all()
+    return render_template("schedule.html", schedule = schedule)
 
 @app.route("/logout")
 @login_required
