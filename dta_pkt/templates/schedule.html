@@ -26,11 +26,11 @@
   </tr>
 </thead>
 <tbody>
-  {% for element in day_to_act[0] %}
-    {% set outer_loop = loop.index0 %}
+  {% for hour in day_to_act[0] %}
+    {% set display_hour = loop.index0 %}
     <tr>
     {% for day in day_to_act %}
-      <td>{{day[outer_loop].act}}</td>
+      <td>{{day[display_hour].act}}</td>
     {% endfor %}
     </tr>
   {% endfor %}
