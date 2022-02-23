@@ -64,3 +64,9 @@ def register():
         db.session.commit()
         return redirect(url_for("login"))
     return render_template("register.html", form = form)
+
+#error page
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
