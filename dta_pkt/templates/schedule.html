@@ -16,6 +16,7 @@
 <table class="tg">
 <thead>
   <tr>
+    <th class="tg-0lax">Hora</th>
     <th class="tg-0lax">lunes</th>
     <th class="tg-0lax">martes</th>
     <th class="tg-0lax">miercoles</th>
@@ -29,6 +30,7 @@
   {% for hour in day_to_act[0] %}
     {% set display_hour = loop.index0 %}
     <tr>
+      <td>{{display_hour}}</td>
     {% for day in day_to_act %}
       <td>{{day[display_hour].act}}</td>
     {% endfor %}
