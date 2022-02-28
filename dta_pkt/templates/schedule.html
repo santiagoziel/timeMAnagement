@@ -12,6 +12,9 @@
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0lax{text-align:left;vertical-align:top}
+.act[readonly] {
+  background-color: grey;
+}
 </style>
 <table class="tg">
 <thead>
@@ -32,11 +35,39 @@
     <tr>
       <td>{{display_hour}}</td>
     {% for day in day_to_act %}
-      <td>{{day[display_hour].act}}</td>
+      <td><input class = "act" readonly type="text" value="{{day[display_hour].act}}" day="{{loop.index0}}" hour="{{display_hour}}"></td>
     {% endfor %}
     </tr>
   {% endfor %}
 </tbody>
 </table>
   </body>
+  <script type="text/javascript">
+      function edit_act(event){
+      console.log(event);
+    }
+  for(element of document.querySelectorAll(".act")){
+    element.addEventListener("dblclick", event => {
+      event.target.removeAttribute("readonly");
+    });
+
+    element.addEventListener("focusout", event => {
+
+      element = event.target;
+
+      if (element.hasAttribute("readonly"))
+        return;
+
+      value = element.value;
+      payload = {
+        day: element.getAttribute("day"),
+        hour: element.getAttribute("hour")
+      }
+
+      console.log(payload)
+      // axios.post("/change", payload)
+      element.setAttribute("readonly", "");
+    });
+  }
+  </script>
 </html>
