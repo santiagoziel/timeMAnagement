@@ -1,4 +1,4 @@
-# Tima Management Web app
+# Time Management Web app
 
 Simple and agresive time managemnt app, made for my personal use - in development
 
