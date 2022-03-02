@@ -1,4 +1,4 @@
-from flask import  render_template, url_for, redirect
+from flask import  render_template, url_for, redirect, request
 from flask_login import login_user, login_required, logout_user, current_user
 
 from dta_pkt import app, login_manager, bcrypt, db
@@ -36,6 +36,15 @@ def dashboard():
 def schedule():
     days_to_act = [Week.query.filter_by(dia=idx) for idx in range(7)]
     return render_template("schedule.html",day_to_act = days_to_act)
+
+@app.route("/change", methods=['POST'])
+def change():
+    request_data = request.get_json()
+    moment = Week.query.filter_by(dia = request_data['day'], hora = request_data['hour']).first()
+    moment.act = request_data['new_act']
+    #db.session.add(moment)
+    db.session.commit()
+    return "1"
 
 @app.route("/logout")
 @login_required
