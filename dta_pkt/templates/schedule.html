@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -12,9 +13,6 @@
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-0lax{text-align:left;vertical-align:top}
-.act[readonly] {
-  background-color: grey;
-}
 </style>
 <table class="tg">
 <thead>
@@ -43,9 +41,10 @@
 </table>
   </body>
   <script type="text/javascript">
-      function edit_act(event){
+  function edit_act(event){
       console.log(event);
     }
+
   for(element of document.querySelectorAll(".act")){
     element.addEventListener("dblclick", event => {
       event.target.removeAttribute("readonly");
@@ -61,11 +60,12 @@
       value = element.value;
       payload = {
         day: element.getAttribute("day"),
-        hour: element.getAttribute("hour")
+        hour: element.getAttribute("hour"),
+        new_act: value
       }
 
       console.log(payload)
-      // axios.post("/change", payload)
+      axios.post("/change", payload)
       element.setAttribute("readonly", "");
     });
   }
