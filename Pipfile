@@ -16,6 +16,7 @@ email-validator = "*"
 pandas = "*"
 openpyxl = "*"
 pytz = "*"
+gunicorn = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
