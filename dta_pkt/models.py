@@ -8,12 +8,12 @@ class User(db.Model, UserMixin):
     #passwords are 20 char max but then we hash it so it gets pretty long hence the 80 max limit
     password = db.Column(db.String(80), nullable=False)
     #llamo a al conjunto de momentos para un usuario su horario
-    horario = db.relationship('Moments', backref='usuario', lazy=True)
+    horario = db.relationship('Moment', backref='usuario', lazy=True)
 
     def __repr__(self):
         return f"Usuario: {self.username}"
 
-class Moments(db.Model):
+class Moment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     #dias de la semana representados como 0 - 6
     dia = db.Column(db.Integer, nullable = False)

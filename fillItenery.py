@@ -1,11 +1,11 @@
 import pandas as pd
-from dta_pkt.models import Week
+from dta_pkt.models import Moment
 from dta_pkt import db
 xls = pd.ExcelFile('data.xlsx')
-sheet = pd.read_excel(xls, 'data')
+sheet = pd.read_excel(xls, 'data2')
 df = pd.DataFrame(sheet)
 
 for index, row in df.iterrows():
-    entry = Week(dia = row['Dia'] , hora = row['Hora'], act = row['Actividad'])
+    entry = Moment(dia = row['Dia'] , hora = row['Hora'], act = row['Actividad'], user_id = 2)
     db.session.add(entry)
     db.session.commit()

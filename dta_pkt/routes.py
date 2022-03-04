@@ -3,7 +3,7 @@ from flask_login import login_user, login_required, logout_user, current_user
 
 from dta_pkt import app, login_manager, bcrypt, db
 from dta_pkt.forms import LogInForm,RegisterForm
-from dta_pkt.models import User, Moments
+from dta_pkt.models import User, Moment
 
 import datetime
 import pytz
@@ -23,7 +23,7 @@ def home():
 @login_required
 def deberiaEstar():
     my_date = datetime.datetime.now(pytz.timezone('America/Mexico_City'))
-    moment = Moments.query.filter_by(dia = my_date.weekday(), hora = my_date.hour).first()
+    moment = Moment.query.filter_by(dia = my_date.weekday(), hora = my_date.hour, user_id = current_user.id).first()
     return render_template("shouldBeDoing.html", act=moment.act)
 
 @app.route("/dashboard", methods=['GET', 'POST'])
@@ -34,13 +34,13 @@ def dashboard():
 @app.route("/schedule", methods=['GET', 'POST'])
 @login_required
 def schedule():
-    days_to_act = [Moments.query.filter_by(dia=idx) for idx in range(7)]
+    days_to_act = [Moment.query.filter_by(dia=idx, user_id = current_user.id) for idx in range(7)]
     return render_template("schedule.html",day_to_act = days_to_act)
 
 @app.route("/change", methods=['POST'])
 def change():
     request_data = request.get_json()
-    moment = Moments.query.filter_by(dia = request_data['day'], hora = request_data['hour']).first()
+    moment = Moment.query.filter_by(dia = request_data['day'], hora = request_data['hour'], user_id = current_user.id).first()
     moment.act = request_data['new_act']
     #db.session.add(moment)
     db.session.commit()
