@@ -13,3 +13,9 @@ I use it
 
 ## Contributing
 Im making it
+
+## TODO
+
+- [ ] implement way to add new schedule
+- [ ] allow schedule at different times (for now it only allows intervals of one hour)
+- [ ] improve overall look
